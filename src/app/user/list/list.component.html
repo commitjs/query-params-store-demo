@@ -1,0 +1,26 @@
+<div>Page: {{page$ | async}}</div>
+<div> PageSize: {{pageSize$ | async}}</div>
+<p>list works!</p>
+
+{{userId$ | async}}
+<div>
+  <h1>USERS</h1>
+  <ul>
+    <li *ngFor="let user of (usersData$ | async)?.users" (click)="selectUser(user)">{{user.username}}</li>
+  </ul>
+
+  <button (click)="prevUsersPage()">PrevPage</button>
+  <button (click)="nextUsersPage()">NextPage</button>
+</div>
+<br />
+<br />
+<br />
+<div>
+  <h1>POSTS</h1>
+  <ul>
+    <li *ngFor="let post of (postsData$ | async)?.posts">{{post.title}}</li>
+  </ul>
+
+  <button (click)="prevPostsPage()">PrevPage</button>
+  <button (click)="nextPostsPage()">NextPage</button>
+</div>
